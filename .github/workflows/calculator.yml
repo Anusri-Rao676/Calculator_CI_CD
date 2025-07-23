@@ -15,7 +15,14 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Run calculator
+    - name: Install dependencies (if needed)
+      run: pip install -r requirements.txt || true
+
+    - name: Run calculator tests
+      run: |
+        python -m unittest test_calculator.py
+
+    - name: Run sample calculations
       run: |
         python calculator.py add 5 3
         python calculator.py sub 10 4
