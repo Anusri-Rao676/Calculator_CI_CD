@@ -1,0 +1,23 @@
+name: Run Calculator
+
+on: [push]
+
+jobs:
+  run-calculator:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Run calculator
+      run: |
+        python calculator.py add 5 3
+        python calculator.py sub 10 4
+        python calculator.py mul 3 7
+        python calculator.py div 8 2
